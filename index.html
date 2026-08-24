@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rane Curto | Consultoria estratégica em gestão pública e privada em São Paulo. Planejamento, governança, processos, projetos e indicadores para decisões mais eficientes.">
+  <meta name="theme-color" content="#132D61">
+  <title>Rane Curto | Consultoria Estratégica em Gestão Pública e Privada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root{
+      --navy:#132D61;
+      --navy-2:#0a1a2e;
+      --navy-3:#081322;
+      --green:#3FA269;
+      --green-dark:#2f8153;
+      --teal:#5ebfc7;
+      --ink:#172033;
+      --muted:#60708d;
+      --line:#e5eaf1;
+      --soft:#f5f8fb;
+      --white:#fff;
+      --shadow:0 20px 55px rgba(19,45,97,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--ink);background:#fff;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .serif{font-family:"Playfair Display",serif}
+
+    /* Header */
+    header{position:fixed;inset:0 0 auto;z-index:50;padding:14px 18px;transition:.3s ease}
+    .header-inner{width:min(1240px,100%);margin:auto;height:76px;padding:0 24px;border:1px solid transparent;border-radius:18px;display:flex;align-items:center;justify-content:space-between;transition:.3s ease}
+    header.scrolled .header-inner{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-color:rgba(226,232,240,.85);box-shadow:0 10px 35px rgba(15,23,42,.11)}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff}
+    header.scrolled .brand{color:var(--navy)}
+    .brand-mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--teal));display:grid;place-items:center;font-weight:900;color:#fff;box-shadow:0 8px 22px rgba(63,162,105,.28)}
+    .brand-name{font-weight:800;letter-spacing:.02em;font-size:18px;line-height:1.1}
+    .brand-tag{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.13em;margin-top:5px;opacity:.82;font-weight:700}
+    .desktop-nav{display:flex;align-items:center;gap:26px;color:#fff;font-size:13px;font-weight:700}
+    header.scrolled .desktop-nav{color:#475569}
+    .desktop-nav a{transition:.2s ease;position:relative}
+    .desktop-nav a:hover{color:var(--green)}
+    .nav-cta{padding:12px 18px;border-radius:999px;background:var(--green);color:#fff!important;display:flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(63,162,105,.25)}
+    .nav-cta:hover{background:var(--green-dark)}
+    .menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);color:#fff}
+    header.scrolled .menu-btn{background:#f8fafc;color:var(--navy);border-color:#e2e8f0}
+    .mobile-nav{display:none}
+
+    /* Hero */
+    .hero{min-height:780px;position:relative;display:flex;align-items:center;overflow:hidden;background:#0b1728}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.85) contrast(1.02)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,18,36,.90) 0%,rgba(6,18,36,.72) 48%,rgba(6,18,36,.34) 100%)}
+    .hero::after{content:"";position:absolute;inset:auto -120px -220px auto;width:520px;height:520px;border-radius:50%;background:rgba(94,191,199,.16);filter:blur(60px)}
+    .hero-content{position:relative;z-index:2;padding:150px 0 90px;max-width:830px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:800;color:#fff}
+    .eyebrow::before{content:"";width:30px;height:2px;background:var(--green)}
+    .hero h1{margin:22px 0 22px;color:#fff;font-family:"Playfair Display",serif;font-size:clamp(44px,5.7vw,76px);line-height:1.02;font-weight:800;text-shadow:0 4px 22px rgba(0,0,0,.44)}
+    .hero h1 span{color:#fff;font-weight:800}
+    .hero-desc{max-width:720px;color:#fff;font-size:18px;line-height:1.72;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.48);margin:0}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{min-height:52px;border-radius:999px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:800;transition:.25s ease;border:1px solid transparent;cursor:pointer}
+    .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 30px rgba(63,162,105,.3)}
+    .btn-primary:hover{background:var(--green-dark);transform:translateY(-2px)}
+    .btn-ghost{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.38);color:#fff;backdrop-filter:blur(8px)}
+    .btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+    .hero-points{display:flex;gap:26px;flex-wrap:wrap;margin-top:38px;color:#fff;font-size:12px;font-weight:700}
+    .hero-points span{display:flex;align-items:center;gap:8px}
+    .hero-points i{color:#7ee2a6}
+
+    /* Trust strip */
+    .trust{background:linear-gradient(135deg,var(--navy-2),var(--navy-3));color:#fff;padding:36px 0;border-top:1px solid rgba(255,255,255,.07)}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden}
+    .trust-item{padding:26px;background:rgba(255,255,255,.025);display:flex;gap:14px;align-items:flex-start}
+    .trust-item i{font-size:23px;color:var(--teal);margin-top:2px}
+    .trust-item strong{display:block;font-size:15px;margin-bottom:5px}
+    .trust-item small{color:#aab8ce;line-height:1.5;font-size:12px}
+
+    section.content{padding:100px 0}
+    .section-head{max-width:780px;margin-bottom:48px}
+    .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+    .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--green);font-weight:800}
+    .section-title{font-family:"Playfair Display",serif;font-size:clamp(34px,4vw,48px);line-height:1.1;color:var(--navy);margin:12px 0 16px}
+    .section-desc{color:var(--muted);font-size:16px;line-height:1.75;margin:0}
+
+    /* Challenges */
+    .challenges{background:var(--soft)}
+    .challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .challenge-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;min-height:220px;box-shadow:0 8px 26px rgba(15,23,42,.05);transition:.25s ease}
+    .challenge-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(63,162,105,.34)}
+    .icon-box{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(63,162,105,.1);color:var(--green);font-size:20px;margin-bottom:20px}
+    .challenge-card h3{font-size:18px;color:var(--navy);margin:0 0 10px}
+    .challenge-card p{font-size:14px;line-height:1.65;color:var(--muted);margin:0}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service-card{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff;transition:.25s ease;position:relative;overflow:hidden}
+    .service-card::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:linear-gradient(90deg,var(--green),var(--teal));transform:scaleX(0);transform-origin:left;transition:.25s ease}
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .service-card:hover::before{transform:scaleX(1)}
+    .service-card h3{font-size:17px;color:var(--navy);margin:15px 0 10px}
+    .service-card p{font-size:13px;color:var(--muted);line-height:1.65;margin:0}
+    .service-card i{font-size:22px;color:var(--green)}
+
+    /* Method */
+    .method{background:linear-gradient(135deg,var(--navy),#0b1830);color:#fff;position:relative;overflow:hidden}
+    .method .section-title{color:#fff}
+    .method .section-desc{color:#b9c5d8}
+    .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+    .step{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(255,255,255,.04);backdrop-filter:blur(5px)}
+    .step-num{font-family:"Playfair Display",serif;font-size:42px;font-weight:700;color:var(--teal);line-height:1}
+    .step h3{font-size:17px;margin:18px 0 10px}
+    .step p{font-size:13px;line-height:1.65;color:#b9c5d8;margin:0}
+
+    /* Audience */
+    .audience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .audience-card{position:relative;min-height:330px;border-radius:26px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:0 18px 42px rgba(15,23,42,.12)}
+    .audience-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .audience-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,33,.08),rgba(7,17,33,.88))}
+    .audience-copy{position:relative;z-index:2;color:#fff;padding:30px}
+    .audience-copy span{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#8ce1b0;font-weight:800}
+    .audience-copy h3{font-family:"Playfair Display",serif;font-size:29px;margin:8px 0 10px}
+    .audience-copy p{font-size:14px;line-height:1.65;color:#e1e8f2;margin:0;max-width:490px}
+
+    /* About */
+    .about{background:#f8fafc}
+    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+    .about-media{position:relative}
+    .about-media img{width:100%;height:560px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
+    .about-badge{position:absolute;right:-24px;bottom:34px;background:#fff;border-radius:20px;padding:22px 24px;box-shadow:0 20px 40px rgba(15,23,42,.14);max-width:240px;border:1px solid var(--line)}
+    .about-badge i{color:var(--green);font-size:24px;margin-bottom:12px}
+    .about-badge strong{display:block;color:var(--navy);line-height:1.3}
+    .about-badge small{display:block;color:var(--muted);margin-top:8px;line-height:1.5}
+    .about-list{display:grid;gap:15px;margin:28px 0 0}
+    .about-list div{display:flex;gap:12px;align-items:flex-start;color:#475569;font-size:14px;line-height:1.6}
+    .about-list i{color:var(--green);margin-top:4px}
+
+    /* CTA */
+    .cta-wrap{padding:80px 0}
+    .cta{border-radius:30px;background:linear-gradient(120deg,#0b1b35,var(--navy));padding:58px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;color:#fff;overflow:hidden;position:relative}
+    .cta::after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(94,191,199,.16);right:-150px;top:-130px;filter:blur(20px)}
+    .cta h2{font-family:"Playfair Display",serif;font-size:38px;line-height:1.1;margin:0 0 14px;position:relative;z-index:1}
+    .cta p{color:#c4cfde;margin:0;max-width:660px;line-height:1.7;position:relative;z-index:1}
+    .cta .btn{position:relative;z-index:1;white-space:nowrap}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px}
+    .contact-card{border-radius:26px;background:var(--navy);color:#fff;padding:36px;position:relative;overflow:hidden}
+    .contact-card h3{font-family:"Playfair Display",serif;font-size:32px;margin:0 0 12px}
+    .contact-card>p{color:#c4cfde;line-height:1.65;font-size:14px;margin:0 0 30px}
+    .contact-line{display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1);align-items:center}
+    .contact-line i{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--teal);flex:none}
+    .contact-line small{display:block;color:#98a8bf;font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:700;margin-bottom:4px}
+    .contact-line strong{font-size:14px}
+    .contact-copy{border:1px solid var(--line);border-radius:26px;padding:36px;background:#fff;box-shadow:0 12px 35px rgba(15,23,42,.05)}
+    .contact-copy h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:36px;margin:0 0 14px}
+    .contact-copy p{color:var(--muted);line-height:1.7;font-size:14px}
+    .contact-options{display:grid;gap:14px;margin-top:26px}
+    .contact-option{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;transition:.2s ease}
+    .contact-option:hover{border-color:rgba(63,162,105,.45);background:#f8fcfa}
+    .contact-option strong{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+    .contact-option small{color:var(--muted);font-size:12px}
+    .contact-option i{color:var(--green)}
+
+    /* FAQ */
+    .faq{background:var(--soft)}
+    .faq-list{max-width:860px;margin:0 auto;display:grid;gap:12px}
+    details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 20px}
+    summary{list-style:none;cursor:pointer;font-weight:700;color:var(--navy);padding:19px 34px 19px 0;position:relative}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";position:absolute;right:0;top:16px;font-size:24px;color:var(--green);font-weight:500}
+    details[open] summary::after{content:"−"}
+    details p{margin:-2px 0 20px;color:var(--muted);font-size:14px;line-height:1.7}
+
+    footer{background:#071321;color:#c8d1df;padding:58px 0 26px}
+    .footer-grid{display:grid;grid-template-columns:1.35fr .65fr .75fr;gap:46px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-brand{font-size:22px;font-weight:800;color:#fff}
+    .footer-tag{font-size:13px;line-height:1.7;color:#8fa0b7;max-width:440px;margin-top:14px}
+    .footer-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#7dd9a3;font-weight:800;margin-bottom:15px}
+    .footer-links{display:grid;gap:10px;font-size:13px}
+    .footer-links a:hover{color:#fff}
+    .copyright{display:flex;justify-content:space-between;gap:20px;padding-top:24px;color:#77899f;font-size:11px}
+
+    .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:45;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#22c55e;color:#fff;font-size:26px;box-shadow:0 14px 34px rgba(34,197,94,.35);transition:.2s ease}
+    .whatsapp-float:hover{transform:scale(1.08)}
+
+    @media(max-width:1000px){
+      .desktop-nav{display:none}.menu-btn{display:grid;place-items:center}
+      .mobile-nav{position:absolute;top:92px;left:18px;right:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 18px 48px rgba(15,23,42,.16);color:#334155}
+      .mobile-nav.open{display:grid;gap:4px}
+      .mobile-nav a{padding:13px 12px;border-radius:10px;font-weight:700;font-size:14px}.mobile-nav a:hover{background:#f1f5f9}
+      .trust-grid,.method-grid{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .challenge-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+      .about-media img{height:460px}.about-badge{right:18px}
+      .cta{grid-template-columns:1fr}.cta .btn{width:max-content}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 30px,1180px)}
+      header{padding:10px}.header-inner{height:68px;padding:0 14px}.brand-name{font-size:16px}.brand-mark{width:39px;height:39px}.brand-tag{font-size:8px}
+      .hero{min-height:720px}.hero-content{padding:130px 0 70px}.hero h1{font-size:42px}.hero-desc{font-size:15px;line-height:1.65}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.hero-points{gap:13px;flex-direction:column}
+      .trust{padding:24px 0}.trust-grid{grid-template-columns:1fr}.trust-item{padding:21px}
+      section.content{padding:72px 0}.section-title{font-size:34px}.section-head{margin-bottom:34px}
+      .challenge-grid,.services-grid,.method-grid,.audience-grid{grid-template-columns:1fr}
+      .challenge-card{min-height:auto}.service-card{padding:23px}.audience-card{min-height:300px}
+      .about-media img{height:380px}.about-badge{position:relative;right:auto;bottom:auto;margin:-54px 18px 0}
+      .cta-wrap{padding:58px 0}.cta{padding:34px 25px;border-radius:24px}.cta h2{font-size:31px}.cta .btn{width:100%}
+      .contact-card,.contact-copy{padding:27px 23px}.contact-copy h2{font-size:31px}
+      .footer-grid{grid-template-columns:1fr;gap:30px}.copyright{flex-direction:column}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Rane Curto",
+    "description": "Consultoria estratégica em gestão pública e privada.",
+    "telephone": "+55 31 99196-8002",
+    "areaServed": "São Paulo - SP, Brasil",
+    "serviceType": [
+      "Consultoria em Gestão Pública",
+      "Consultoria em Gestão Privada",
+      "Planejamento Estratégico",
+      "Governança e Processos",
+      "Gestão de Projetos",
+      "Indicadores de Desempenho"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Rane Curto - início">
+        <span class="brand-mark">N</span>
+        <span><span class="brand-name">Rane Curto</span><span class="brand-tag">Consultoria Estratégica</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#atuacao">Áreas de Atuação</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#contato">Contato</a>
+        <a class="nav-cta" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20consultoria%20estrat%C3%A9gica%20da%20Rane%20Curto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Falar com consultor</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+        <a href="#inicio">Início</a><a href="#sobre">Quem Somos</a><a href="#servicos">Serviços</a><a href="#atuacao">Áreas de Atuação</a><a href="#metodologia">Metodologia</a><a href="#contato">Contato</a>
+        <a href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20consultoria%20estrat%C3%A9gica%20da%20Rane%20Curto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=85" alt="Ambiente corporativo para consultoria estratégica">
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Consultoria Estratégica em São Paulo</span>
+          <h1>Rane Curto: estratégia para transformar a <span>gestão pública e privada</span></h1>
+          <p class="hero-desc">Consultoria estratégica para organizações, empresas e gestores que buscam mais eficiência, clareza na tomada de decisão, processos bem estruturados e resultados sustentáveis.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Quero%20entender%20como%20a%20Rane%20Curto%20pode%20apoiar%20minha%20gest%C3%A3o." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Falar com um consultor</a>
+            <a class="btn btn-ghost" href="#servicos"><i class="fa-solid fa-arrow-down"></i> Conheça nossas soluções</a>
+          </div>
+          <div class="hero-points">
+            <span><i class="fa-solid fa-circle-check"></i> Gestão Pública</span>
+            <span><i class="fa-solid fa-circle-check"></i> Gestão Privada</span>
+            <span><i class="fa-solid fa-circle-check"></i> Planejamento Estratégico</span>
+            <span><i class="fa-solid fa-circle-check"></i> Processos e Indicadores</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Pilares de atuação">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item"><i class="fa-solid fa-magnifying-glass-chart"></i><div><strong>Diagnóstico de gestão</strong><small>Leitura estruturada do cenário, dos gargalos e das prioridades.</small></div></div>
+          <div class="trust-item"><i class="fa-solid fa-compass-drafting"></i><div><strong>Direcionamento estratégico</strong><small>Objetivos, prioridades e planos de ação conectados à realidade.</small></div></div>
+          <div class="trust-item"><i class="fa-solid fa-gears"></i><div><strong>Processos mais eficientes</strong><small>Organização de fluxos, responsabilidades e rotinas de gestão.</small></div></div>
+          <div class="trust-item"><i class="fa-solid fa-chart-line"></i><div><strong>Gestão por resultados</strong><small>Indicadores para acompanhar desempenho e apoiar decisões.</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content challenges" id="desafios">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker">Desafios de gestão</span>
+          <h2 class="section-title">Sua organização precisa de mais direção, eficiência e capacidade de execução?</h2>
+          <p class="section-desc">A consultoria atua na conexão entre estratégia e operação, ajudando gestores a transformar problemas complexos em prioridades claras, planos executáveis e acompanhamento de resultados.</p>
+        </div>
+        <div class="challenge-grid">
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-route"></i></div><h3>Estratégia sem execução</h3><p>Objetivos existem, mas faltam prioridades, responsáveis, prazos e uma rotina clara para transformar o planejamento em ação.</p></article>
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-diagram-project"></i></div><h3>Processos desorganizados</h3><p>Fluxos pouco definidos, retrabalho e responsabilidades difusas reduzem a produtividade e dificultam o controle da gestão.</p></article>
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div><h3>Falta de indicadores</h3><p>Sem métricas consistentes, decisões importantes acabam sendo tomadas com pouca visibilidade sobre desempenho e resultados.</p></article>
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-people-group"></i></div><h3>Baixa integração entre áreas</h3><p>Setores e equipes trabalham de forma isolada, comprometendo comunicação, velocidade e alinhamento com os objetivos estratégicos.</p></article>
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-scale-balanced"></i></div><h3>Governança fragilizada</h3><p>Papéis, critérios de decisão, prestação de contas e mecanismos de acompanhamento precisam estar mais bem definidos.</p></article>
+          <article class="challenge-card"><div class="icon-box"><i class="fa-solid fa-bullseye"></i></div><h3>Projetos sem controle</h3><p>Iniciativas importantes perdem ritmo quando não há método para organizar escopo, cronograma, riscos, responsáveis e entregas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Soluções estratégicas</span>
+          <h2 class="section-title">Consultoria para fortalecer a gestão e transformar estratégia em resultado</h2>
+          <p class="section-desc">As soluções podem ser aplicadas conforme o contexto de cada organização, seja no setor público ou privado, com foco em estruturação, eficiência, governança e desempenho.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><i class="fa-solid fa-chess-knight"></i><h3>Planejamento Estratégico</h3><p>Definição de objetivos, prioridades, metas, iniciativas e planos de ação para orientar a organização.</p></article>
+          <article class="service-card"><i class="fa-solid fa-landmark"></i><h3>Gestão Pública</h3><p>Apoio à modernização da gestão, organização institucional, projetos, processos e acompanhamento de resultados.</p></article>
+          <article class="service-card"><i class="fa-solid fa-building"></i><h3>Gestão Privada</h3><p>Estruturação gerencial para empresas que buscam organização, produtividade e decisões baseadas em informação.</p></article>
+          <article class="service-card"><i class="fa-solid fa-sitemap"></i><h3>Governança e Processos</h3><p>Mapeamento de processos, definição de responsabilidades, fluxos decisórios e mecanismos de governança.</p></article>
+          <article class="service-card"><i class="fa-solid fa-list-check"></i><h3>Gestão de Projetos</h3><p>Organização de portfólios e projetos com escopo, prazos, responsáveis, riscos, entregas e acompanhamento executivo.</p></article>
+          <article class="service-card"><i class="fa-solid fa-chart-column"></i><h3>Indicadores e Performance</h3><p>Construção de indicadores e painéis gerenciais para monitorar metas, desempenho, produtividade e resultados.</p></article>
+          <article class="service-card"><i class="fa-solid fa-users-gear"></i><h3>Desenvolvimento Institucional</h3><p>Fortalecimento de estruturas, rotinas de gestão, integração entre áreas e capacidade de execução das equipes.</p></article>
+          <article class="service-card"><i class="fa-solid fa-arrows-rotate"></i><h3>Transformação Organizacional</h3><p>Apoio a mudanças estratégicas, redesenho de processos, implantação de novas práticas e evolução da gestão.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content method" id="metodologia">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Forma de atuação</span>
+          <h2 class="section-title">Uma metodologia orientada à realidade da organização</h2>
+          <p class="section-desc">O trabalho parte do contexto real, estrutura prioridades e cria um caminho prático para implementação e acompanhamento.</p>
+        </div>
+        <div class="method-grid">
+          <article class="step"><span class="step-num">01</span><h3>Diagnóstico</h3><p>Levantamento do cenário atual, objetivos, processos, riscos, gargalos, informações disponíveis e principais desafios.</p></article>
+          <article class="step"><span class="step-num">02</span><h3>Direcionamento</h3><p>Definição de prioridades, metas, responsabilidades e plano de ação compatível com a capacidade da organização.</p></article>
+          <article class="step"><span class="step-num">03</span><h3>Implementação</h3><p>Apoio na execução das melhorias, organização dos processos, estruturação dos projetos e implantação das rotinas de gestão.</p></article>
+          <article class="step"><span class="step-num">04</span><h3>Monitoramento</h3><p>Acompanhamento de indicadores, evolução das ações, correções de rota e consolidação das práticas implantadas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="atuacao">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker">Áreas de atuação</span>
+          <h2 class="section-title">Estratégia e gestão para diferentes contextos organizacionais</h2>
+          <p class="section-desc">A abordagem se adapta às necessidades, aos objetivos e ao nível de maturidade de cada instituição.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=80" alt="Gestão pública"><div class="audience-copy"><span>Setor público</span><h3>Gestão Pública</h3><p>Consultoria para apoiar planejamento, governança, modernização administrativa, projetos, processos, indicadores e melhoria da capacidade institucional.</p></div></article>
+          <article class="audience-card"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Gestão privada"><div class="audience-copy"><span>Setor privado</span><h3>Gestão Privada</h3><p>Estruturação estratégica e gerencial para empresas que precisam elevar produtividade, organizar a operação e sustentar o crescimento com mais controle.</p></div></article>
+          <article class="audience-card"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80" alt="Gestores e lideranças"><div class="audience-copy"><span>Liderança</span><h3>Gestores e Equipes</h3><p>Apoio a lideranças na organização de prioridades, rituais de gestão, responsabilidades, indicadores e acompanhamento da execução.</p></div></article>
+          <article class="audience-card"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Projetos estratégicos"><div class="audience-copy"><span>Projetos</span><h3>Projetos Estratégicos</h3><p>Estruturação e acompanhamento de iniciativas críticas que exigem coordenação, método, visão executiva e foco em entregas.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-media">
+          <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?auto=format&fit=crop&w=1200&q=85" alt="Consultoria estratégica Rane Curto">
+          <div class="about-badge"><i class="fa-solid fa-lightbulb"></i><strong>Estratégia com aplicação prática</strong><small>Diagnóstico, direcionamento, execução e acompanhamento integrados em uma mesma visão de gestão.</small></div>
+        </div>
+        <div>
+          <span class="section-kicker">Quem Somos</span>
+          <h2 class="section-title">Consultoria estratégica para organizações que precisam transformar gestão em resultado</h2>
+          <p class="section-desc">A Rane Curto atua com consultoria estratégica em gestão pública e privada, apoiando organizações e gestores na estruturação de decisões, processos, projetos e mecanismos de acompanhamento.</p>
+          <p class="section-desc" style="margin-top:16px">A proposta é combinar visão estratégica com execução prática, construindo soluções aderentes à realidade de cada contexto e evitando modelos genéricos que não se sustentam na operação.</p>
+          <div class="about-list">
+            <div><i class="fa-solid fa-check"></i><span><strong>Visão sistêmica:</strong> análise integrada de estratégia, pessoas, processos, projetos e indicadores.</span></div>
+            <div><i class="fa-solid fa-check"></i><span><strong>Soluções personalizadas:</strong> recomendações construídas a partir dos desafios e objetivos reais da organização.</span></div>
+            <div><i class="fa-solid fa-check"></i><span><strong>Foco na execução:</strong> planos com prioridades, responsáveis, prazos e acompanhamento.</span></div>
+            <div><i class="fa-solid fa-check"></i><span><strong>Decisão orientada por dados:</strong> indicadores e rotinas de análise para ampliar clareza gerencial.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-wrap">
+      <div class="container">
+        <div class="cta">
+          <div><h2>Sua gestão precisa de mais clareza para avançar?</h2><p>Converse com a Rane Curto sobre o cenário da sua organização e entenda como uma consultoria estratégica pode apoiar a estruturação das prioridades e dos próximos passos.</p></div>
+          <a class="btn btn-primary" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20consultoria%20estrat%C3%A9gica%20em%20gest%C3%A3o." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Iniciar conversa</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="contato">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker">Contato</span>
+          <h2 class="section-title">Vamos conversar sobre os desafios da sua gestão?</h2>
+          <p class="section-desc">Apresente o contexto da sua organização e os pontos que precisam evoluir. O primeiro contato pode ser feito diretamente pelo WhatsApp.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Rane Curto</h3>
+            <p>Consultoria estratégica em gestão pública e privada, com atendimento em São Paulo.</p>
+            <a class="contact-line" href="https://wa.me/5531991968002" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span><small>WhatsApp</small><strong>+55 31 99196-8002</strong></span></a>
+            <a class="contact-line" href="tel:+5531991968002"><i class="fa-solid fa-phone"></i><span><small>Telefone</small><strong>+55 31 99196-8002</strong></span></a>
+            <div class="contact-line"><i class="fa-solid fa-location-dot"></i><span><small>Localização</small><strong>São Paulo - SP, Brasil</strong></span></div>
+          </div>
+          <div class="contact-copy">
+            <h2>Qual é a sua prioridade hoje?</h2>
+            <p>A consultoria pode começar por um desafio específico ou por uma análise mais ampla da gestão. Escolha o tema mais próximo da sua necessidade e fale conosco.</p>
+            <div class="contact-options">
+              <a class="contact-option" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Quero%20apoio%20para%20planejamento%20estrat%C3%A9gico." target="_blank" rel="noopener"><span><strong>Planejamento e direcionamento</strong><small>Objetivos, prioridades, metas e plano de ação.</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a class="contact-option" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Quero%20apoio%20para%20organizar%20processos%20e%20governan%C3%A7a." target="_blank" rel="noopener"><span><strong>Processos e governança</strong><small>Fluxos, responsabilidades e organização da gestão.</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a class="contact-option" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Quero%20apoio%20com%20indicadores%20e%20gest%C3%A3o%20de%20resultados." target="_blank" rel="noopener"><span><strong>Indicadores e resultados</strong><small>Métricas, acompanhamento e rotina executiva.</small></span><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content faq" id="faq">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker">Perguntas frequentes</span>
+          <h2 class="section-title">Como funciona a consultoria estratégica?</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>A consultoria atende tanto o setor público quanto o privado?</summary><p>Sim. A atuação é direcionada a desafios de gestão pública e privada, adaptando diagnóstico, prioridades, processos, projetos e indicadores ao contexto de cada organização.</p></details>
+          <details><summary>É possível contratar a consultoria para um problema específico?</summary><p>Sim. O trabalho pode ser direcionado a uma necessidade pontual, como planejamento, organização de processos, implantação de indicadores ou gestão de projetos, ou abranger uma análise mais ampla.</p></details>
+          <details><summary>Como começa um projeto de consultoria?</summary><p>O ponto de partida é entender o cenário, os objetivos e os principais desafios. A partir disso são estruturadas prioridades, entregas e um plano de atuação compatível com a realidade da organização.</p></details>
+          <details><summary>A consultoria também acompanha a implementação?</summary><p>O formato pode incluir acompanhamento da execução, monitoramento dos planos de ação, indicadores e ajustes de rota, conforme o escopo definido para o projeto.</p></details>
+          <details><summary>Como solicitar uma conversa inicial?</summary><p>Entre em contato pelo WhatsApp no número +55 31 99196-8002 e informe brevemente o desafio ou objetivo que deseja discutir.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand">Rane Curto</div><p class="footer-tag">Consultoria estratégica em gestão pública e privada para apoiar organizações, empresas e gestores na construção de uma gestão mais estruturada, eficiente e orientada a resultados.</p></div>
+        <div><div class="footer-title">Navegação</div><div class="footer-links"><a href="#inicio">Início</a><a href="#sobre">Quem Somos</a><a href="#servicos">Serviços</a><a href="#atuacao">Áreas de Atuação</a><a href="#contato">Contato</a></div></div>
+        <div><div class="footer-title">Contato</div><div class="footer-links"><a href="https://wa.me/5531991968002" target="_blank" rel="noopener">+55 31 99196-8002</a><span>São Paulo - SP</span><span>Gestão Pública e Privada</span></div></div>
+      </div>
+      <div class="copyright"><span>© 2026 Rane Curto. Todos os direitos reservados.</span><span>Consultoria Estratégica • São Paulo - SP</span></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5531991968002?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20consultoria%20da%20Rane%20Curto." target="_blank" rel="noopener" aria-label="Falar com a Rane Curto pelo WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script>
+    const header = document.getElementById('header');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    function syncHeader(){ header.classList.toggle('scrolled', window.scrollY > 35); }
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, {passive:true});
+
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      const icon = menuBtn.querySelector('i');
+      icon.className = mobileNav.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+    }));
+  </script>
+</body>
+</html>
